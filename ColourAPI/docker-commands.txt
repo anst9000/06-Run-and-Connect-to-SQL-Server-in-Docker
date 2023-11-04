@@ -1,0 +1,11 @@
+# STEP 1
+# Create an image from the Dockerfile
+docker build -t coltla/colourapi .
+
+# STEP 2
+# Spin up a container from the image created in step 1
+docker run -p 8080:80 coltla/colourapic
+
+# STEP 3
+# Run a container with MSSQL 2019
+docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Pa55w0rd2019" -e "MSSQL_PID=Express" -p 1433:1433 -d mcr.microsoft.com/mssql/server:2017-latest-ubuntu
